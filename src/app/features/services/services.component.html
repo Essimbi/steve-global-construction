@@ -1,0 +1,53 @@
+<!-- Hero Section -->
+<section class="services-hero">
+  <div class="hero-bg-texture"></div>
+  <div class="container hero-content">
+    <span class="label">Ce que nous faisons</span>
+    <h1 class="display-text">Nos Domaines <br><span class="bronze-text">d'Expertise</span></h1>
+    <p class="hero-sub">De l'énergie à la finition, nous couvrons l'ensemble du cycle de construction.</p>
+  </div>
+</section>
+
+<!-- Services Grid -->
+<section class="services-detail section">
+  <div class="container">
+    <div class="services-detail-grid">
+      @for (service of services; track service.id) {
+        <div class="service-detail-card glass glass-hover" appVanillaTilt>
+          <div class="card-header">
+            <span class="service-icon-lg"><lucide-icon [name]="service.icon"></lucide-icon></span>
+            <h2 class="service-title">{{ service.name }}</h2>
+          </div>
+
+          <p class="service-description">{{ service.description }}</p>
+
+          <ul class="deliverables-list">
+            @for (deliverable of service.deliverables; track $index) {
+              <li>
+                <span class="check">✓</span>
+                {{ deliverable }}
+              </li>
+            }
+          </ul>
+
+          <div class="card-footer">
+            <button class="btn btn-whatsapp wa-btn" (click)="onWhatsApp(service)">
+              Demander ce service →
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="services-cta section">
+  <div class="container cta-inner">
+    <h2 class="display-text">Un projet multi-services ? <span class="bronze-text">Parlons-en.</span></h2>
+    <div class="cta-buttons">
+      <a href="https://wa.me/237600000000?text=Bonjour%2C%20j%27ai%20un%20projet%20multi-services." target="_blank" class="btn btn-whatsapp">Écrire sur WhatsApp</a>
+      <a routerLink="/contact" class="btn btn-outline">Formulaire de contact</a>
+    </div>
+  </div>
+</section>

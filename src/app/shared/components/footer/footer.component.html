@@ -1,0 +1,65 @@
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-col brand-col">
+      <div class="logo-container">
+        <span class="logo-monogram">SGC</span>
+        <span class="logo-text">Steve Global <br> Construction</span>
+      </div>
+      <p class="brand-tagline">
+        L'excellence technique au service de vos ambitions. Bâtissons ensemble des infrastructures durables et innovantes.
+      </p>
+      <div class="social-links">
+        <a href="#" target="_blank" aria-label="WhatsApp"><i class="whatsapp-icon"></i></a>
+        <a href="#" target="_blank" aria-label="Facebook">FB</a>
+        <a href="#" target="_blank" aria-label="LinkedIn">IN</a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="col-title">Liens Rapides</h4>
+      <ul class="footer-links">
+        <li><a routerLink="/">Accueil</a></li>
+        <li><a routerLink="/services">Nos Services</a></li>
+        <li><a routerLink="/produits">Nos Produits</a></li>
+        <li><a routerLink="/contact">Contact & Devis</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="col-title">Services</h4>
+      <ul class="footer-links">
+        @for (service of services; track service) {
+          <li><a routerLink="/services">{{ service }}</a></li>
+        }
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4 class="col-title">Contact</h4>
+      <ul class="contact-info">
+        <li>
+          <span class="label">Adresse</span>
+          <p>Yaoundé, Cameroun</p>
+        </li>
+        <li>
+          <span class="label">Téléphone</span>
+          <p>+237 6XX XXX XXX</p>
+        </li>
+        <li>
+          <span class="label">E-mail</span>
+          <p>contact&#64;steveglobalconstruction.cm</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container bottom-content">
+      <p>&copy; {{ currentYear }} Steve Global Construction. Tous droits réservés.</p>
+      <div class="bottom-links">
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Mentions légales</a>
+      </div>
+    </div>
+  </div>
+</footer>

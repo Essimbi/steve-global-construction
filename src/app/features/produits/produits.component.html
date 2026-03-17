@@ -1,0 +1,60 @@
+<!-- Header -->
+<section class="produits-hero">
+  <div class="hero-bg-texture"></div>
+  <div class="container hero-content">
+    <span class="label">Catalogue</span>
+    <h1 class="display-text">Nos <span class="bronze-text">Produits</span></h1>
+    <p class="hero-sub">Matériel professionnel sélectionné pour la performance et la durabilité.</p>
+  </div>
+</section>
+
+<!-- Sticky Filter Bar -->
+<div class="filter-bar-wrapper">
+  <div class="container filter-bar">
+    @for (cat of categories; track cat) {
+      <button
+        class="filter-pill"
+        [class.active]="activeFilter() === cat"
+        (click)="setFilter(cat)">
+        {{ cat }}
+      </button>
+    }
+  </div>
+</div>
+
+<!-- Product Grid -->
+<section class="produits-grid-section section">
+  <div class="container">
+    <div class="product-grid">
+      @for (product of filteredProducts(); track product.id) {
+        <div class="product-card glass glass-hover" appVanillaTilt>
+          <div class="product-image">
+            <img [src]="product.image" [alt]="product.name" loading="lazy">
+            <span class="category-badge">{{ product.category }}</span>
+          </div>
+          <div class="product-info">
+            <h3 class="product-name">{{ product.name }}</h3>
+            <p class="product-desc">{{ product.description }}</p>
+            <div class="product-footer">
+              <span class="price-tag">{{ product.price }}</span>
+              <button class="btn btn-whatsapp order-btn" (click)="onOrder(product)">
+                Commander →
+              </button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Bottom CTA -->
+<section class="produits-cta section">
+  <div class="container text-center">
+    <p class="cta-question">Vous ne trouvez pas ce qu'il vous faut ?</p>
+    <h2 class="display-text">Demandez un devis <span class="bronze-text">personnalisé</span></h2>
+    <a href="https://wa.me/237600000000?text=Bonjour%2C%20je%20cherche%20un%20produit%20sp%C3%A9cifique.%20Pouvez-vous%20m%27aider%20%3F" target="_blank" class="btn btn-whatsapp">
+      Écrire sur WhatsApp
+    </a>
+  </div>
+</section>

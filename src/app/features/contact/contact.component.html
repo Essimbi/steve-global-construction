@@ -1,0 +1,115 @@
+<!-- Hero -->
+<section class="contact-hero">
+  <div class="container">
+    <span class="label">Travaillons ensemble</span>
+    <h1 class="display-text">Démarrons votre <br><span class="bronze-text">projet</span></h1>
+    <p>Réponse garantie sous 24h.</p>
+  </div>
+</section>
+
+<!-- Main Content -->
+<section class="contact-main section">
+  <div class="container contact-layout">
+
+    <!-- Left: Form -->
+    <div class="form-col">
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div class="form-group">
+          <label for="fullName" class="label">Nom complet *</label>
+          <input id="fullName" type="text" formControlName="fullName" placeholder="Jean-Pierre Mbarga">
+          @if (submitted && f['fullName'].errors) {
+            <span class="error">Le nom est requis (minimum 2 caractères).</span>
+          }
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email" class="label">Email *</label>
+            <input id="email" type="email" formControlName="email" placeholder="vous@exemple.cm">
+            @if (submitted && f['email'].errors) {
+              <span class="error">Adresse email invalide.</span>
+            }
+          </div>
+          <div class="form-group">
+            <label for="phone" class="label">Téléphone / WhatsApp</label>
+            <input id="phone" type="tel" formControlName="phone" placeholder="+237 6XX XXX XXX">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="label">Service(s) souhaité(s) *</label>
+          <div class="services-select">
+            @for (service of services; track service) {
+              <button
+                type="button"
+                class="service-toggle"
+                [class.selected]="isServiceSelected(service)"
+                (click)="toggleService(service)">
+                {{ service }}
+              </button>
+            }
+          </div>
+          @if (submitted && f['services'].errors) {
+            <span class="error">Veuillez sélectionner au moins un service.</span>
+          }
+        </div>
+
+        <div class="form-group">
+          <label for="message" class="label">Description du projet *</label>
+          <textarea id="message" formControlName="message" rows="6" placeholder="Décrivez votre projet en quelques lignes : lieu, délais, contraintes particulières..."></textarea>
+          @if (submitted && f['message'].errors) {
+            <span class="error">Veuillez décrire votre projet (minimum 20 caractères).</span>
+          }
+        </div>
+
+        <button type="submit" class="btn btn-whatsapp submit-btn">
+          Envoyer ma demande via WhatsApp
+        </button>
+
+      </form>
+    </div>
+
+    <!-- Right: Info -->
+    <div class="info-col">
+      <a href="https://wa.me/237600000000?text=Bonjour%20Steve%20Global%20Construction%20!" target="_blank" class="whatsapp-direct btn btn-whatsapp">
+        Discuter directement sur WhatsApp
+      </a>
+
+      <div class="contact-details">
+        <div class="detail-item">
+          <span class="label">Adresse</span>
+          <p>Yaoundé, Cameroun</p>
+        </div>
+        <div class="detail-item">
+          <span class="label">Téléphone</span>
+          <p>+237 6XX XXX XXX</p>
+        </div>
+        <div class="detail-item">
+          <span class="label">E-mail</span>
+          <p>contact&#64;steveglobalconstruction.cm</p>
+        </div>
+        <div class="detail-item">
+          <span class="label">Horaires</span>
+          <p>Lun–Ven 8h–18h &nbsp;|&nbsp; Sam 8h–13h</p>
+        </div>
+      </div>
+
+      <div class="trust-signals">
+        <div class="trust-card glass">
+          <span class="trust-icon"><lucide-icon name="target"></lucide-icon></span>
+          <span>Devis gratuit</span>
+        </div>
+        <div class="trust-card glass">
+          <span class="trust-icon"><lucide-icon name="zap"></lucide-icon></span>
+          <span>Réponse rapide</span>
+        </div>
+        <div class="trust-card glass">
+          <span class="trust-icon"><lucide-icon name="trophy"></lucide-icon></span>
+          <span>Expertise certifiée</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

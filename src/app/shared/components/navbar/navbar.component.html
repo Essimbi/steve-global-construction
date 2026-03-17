@@ -1,0 +1,44 @@
+<nav [class.scrolled]="isScrolled()" [class.menu-open]="isMenuOpen()" class="navbar glass">
+  <div class="container navbar-container">
+    <div class="logo-container" routerLink="/" (click)="closeMenu()">
+      <span class="logo-monogram">SGC</span>
+      <span class="logo-text">Steve Global <br> Construction</span>
+    </div>
+
+    <ul class="nav-links desktop-only">
+      @for (link of navLinks; track link.path) {
+        <li>
+          <a [routerLink]="link.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ link.label }}</a>
+        </li>
+      }
+    </ul>
+
+    <div class="nav-actions desktop-only">
+      <a routerLink="/contact" class="btn btn-primary btn-sm">Devis gratuit</a>
+    </div>
+
+    <button class="menu-toggle mobile-only" (click)="toggleMenu()" aria-label="Toggle menu">
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </div>
+
+  <div class="mobile-menu" [class.open]="isMenuOpen()">
+    <div class="mobile-menu-content">
+      <ul class="mobile-nav-links">
+        @for (link of navLinks; track link.path; let i = $index) {
+          <li [style.transition-delay]="(i * 0.1) + 's'">
+            <a [routerLink]="link.path" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="closeMenu()">
+              {{ link.label }}
+            </a>
+          </li>
+        }
+      </ul>
+      <div class="mobile-menu-footer">
+        <a routerLink="/contact" class="btn btn-primary full-width" (click)="closeMenu()">Demander un devis</a>
+      </div>
+    </div>
+  </div>
+</nav>

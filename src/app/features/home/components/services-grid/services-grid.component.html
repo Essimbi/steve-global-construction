@@ -1,0 +1,25 @@
+<section class="services-grid-wrapper section" id="services-preview">
+  <div class="container text-center">
+    <span class="label">Expertise</span>
+    <h2 class="display-text gold-gradient-text">Ce que nous faisons</h2>
+  </div>
+
+  <div class="container services-grid">
+    @for (service of services; track service.id) {
+      <div class="service-card glass glass-hover" appVanillaTilt>
+        <div class="card-content">
+          <div class="service-icon"><lucide-icon [name]="service.icon"></lucide-icon></div>
+          <h3 class="service-name">{{ service.name }}</h3>
+          <p class="service-desc">{{ service.description }}</p>
+        </div>
+        <div class="card-footer">
+          <a routerLink="/services" class="learn-more">Détails <span class="arrow">→</span></a>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="container grid-footer">
+    <a routerLink="/services" class="btn btn-outline">Voir tous nos services</a>
+  </div>
+</section>

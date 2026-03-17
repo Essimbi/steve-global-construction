@@ -1,0 +1,20 @@
+<section class="why-us section">
+  <div class="container text-center">
+    <span class="label">Engagement</span>
+    <h2 class="display-text gold-gradient-text">Pourquoi nous choisir ?</h2>
+  </div>
+
+  <div class="container reasons-grid">
+    @for (reason of reasons; track reason.title) {
+      <div class="reason-item">
+        <div class="reason-icon">{{ reason.icon }}</div>
+        <div class="stat-wrapper">
+          <span class="stat-number" [attr.data-value]="reason.stat">0</span>
+          <span class="stat-suffix">{{ reason.suffix }}</span>
+        </div>
+        <h3 class="reason-title">{{ reason.title }}</h3>
+        <p class="reason-desc">{{ reason.desc }}</p>
+      </div>
+    }
+  </div>
+</section>

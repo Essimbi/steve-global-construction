@@ -54,7 +54,7 @@ export class ProduitsComponent {
       const msg = encodeURIComponent(
         `Bonjour, je souhaite commander le produit suivant :\n\n*${product.name}*\n${product.description}\n\nMerci de me donner plus d'informations.`
       );
-      window.open(`https://wa.me/237600000000?text=${msg}`, '_blank');
+      window.open(`https://wa.me/237656199216?text=${msg}`, '_blank');
     }
   }
 }

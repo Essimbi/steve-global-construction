@@ -17,6 +17,12 @@ interface Service {
   waText: string;
 }
 
+interface FaqItem {
+  question: string;
+  answer: string;
+  isOpen: boolean;
+}
+
 @Component({
   selector: 'app-services',
   standalone: true,
@@ -94,6 +100,29 @@ export class ServicesComponent implements AfterViewInit {
     }
   ];
 
+  faqItems: FaqItem[] = [
+    {
+      question: 'Intervenez-vous sur tout le territoire ?',
+      answer: 'Oui, Steve Global Construction dispose d\'équipes mobiles capables de se déployer sur l\'ensemble du territoire national ainsi que dans la sous-région pour des projets d\'envergure.',
+      isOpen: false
+    },
+    {
+      question: 'Quels sont vos délais de déploiement ?',
+      answer: 'La réactivité est l\'une de nos forces. Pour un audit technique, nous intervenons généralement sous 48h. Pour les chantiers, le planning est défini lors de la phase d\'ingénierie.',
+      isOpen: false
+    },
+    {
+      question: 'Offrez-vous des contrats de maintenance ?',
+      answer: 'Absolument. Nous proposons des contrats de maintenance préventive et curative personnalisés pour garantir la pérennité de vos installations hydrauliques et électriques.',
+      isOpen: false
+    },
+    {
+      question: 'Vos installations sont-elles garanties ?',
+      answer: 'Toutes nos réalisations bénéficient d\'une garantie décennale sur le gros œuvre et d\'une garantie de parfait achèvement sur les équipements techniques.',
+      isOpen: false
+    }
+  ];
+
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
     private el: ElementRef
@@ -102,19 +131,72 @@ export class ServicesComponent implements AfterViewInit {
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       const cards = this.el.nativeElement.querySelectorAll('.service-detail-card');
-      const triggerSection = this.el.nativeElement.querySelector('.services-detail-grid');
       
-      if (cards.length > 0 && triggerSection) {
-        gsap.from(cards, {
-          scrollTrigger: { trigger: triggerSection, start: 'top 85%' },
-          y: 60, opacity: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out'
+      if (cards.length > 0) {
+        cards.forEach((card: HTMLElement, index: number) => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 92%',
+              once: true
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            delay: (index % 2) * 0.1, // Small stagger for cards in the same row
+            ease: 'power3.out'
+          });
         });
+
+        // New sections animations
+        const methodologyItems = this.el.nativeElement.querySelectorAll('.methodology-item');
+        if (methodologyItems.length > 0) {
+          methodologyItems.forEach((item: HTMLElement) => {
+            gsap.from(item, {
+              scrollTrigger: { trigger: item, start: 'top 90%', once: true },
+              y: 40, opacity: 0, duration: 0.8, ease: 'power3.out'
+            });
+          });
+        }
+
+        const pillars = this.el.nativeElement.querySelectorAll('.pillar');
+        if (pillars.length > 0) {
+          pillars.forEach((pillar: HTMLElement, i: number) => {
+            gsap.from(pillar, {
+              scrollTrigger: { trigger: pillar, start: 'top 90%', once: true },
+              y: 40, opacity: 0, duration: 0.8, delay: i * 0.1, ease: 'power3.out'
+            });
+          });
+        }
+
+        const faqItems = this.el.nativeElement.querySelectorAll('.faq-item');
+        if (faqItems.length > 0) {
+          faqItems.forEach((item: HTMLElement) => {
+            gsap.from(item, {
+              scrollTrigger: { trigger: item, start: 'top 92%', once: true },
+              x: -20, opacity: 0, duration: 0.6, ease: 'power2.out'
+            });
+          });
+        }
+
+        // Refresh ScrollTrigger after a short delay to ensure correct positions with Lenis
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 800);
       }
     }
   }
 
   onWhatsApp(service: Service) {
-    const url = `https://wa.me/237600000000?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20votre%20service%20%3A%20${service.waText}`;
+    const url = `https://wa.me/237656199216?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20votre%20service%20%3A%20${service.waText}`;
     window.open(url, '_blank');
+  }
+
+  toggleFaq(item: FaqItem) {
+    item.isOpen = !item.isOpen;
+    // Trigger a ScrollTrigger refresh after the accordion expands/collapses
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 300);
   }
 }

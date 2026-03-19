@@ -41,12 +41,96 @@
   </div>
 </section>
 
-<!-- Bottom CTA -->
+<!-- Methodology Section -->
+<section class="methodology section">
+  <div class="container">
+    <div class="section-header center">
+      <span class="label">Notre Processus</span>
+      <h2 class="display-text">De l'Audit à la <span class="bronze-text">Livraison</span></h2>
+    </div>
+
+    <div class="methodology-grid">
+      <div class="methodology-item">
+        <div class="step-num">01</div>
+        <h3>Audit & Conseil</h3>
+        <p>Analyse approfondie de vos besoins et diagnostic technique sur site.</p>
+      </div>
+      <div class="methodology-item">
+        <div class="step-num">02</div>
+        <h3>Ingénierie & Devis</h3>
+        <p>Conception d'une solution sur mesure et chiffrage transparent.</p>
+      </div>
+      <div class="methodology-item">
+        <div class="step-num">03</div>
+        <h3>Déploiement</h3>
+        <p>Installation et mise en œuvre par nos techniciens certifiés.</p>
+      </div>
+      <div class="methodology-item">
+        <div class="step-num">04</div>
+        <h3>Suivi & Support</h3>
+        <p>Garantie de performance, maintenance et assistance 24/7.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QHSE Section -->
+<section class="qhse-section section">
+  <div class="container qhse-inner">
+    <div class="qhse-content">
+      <span class="label">Engagement QHSE</span>
+      <h2 class="display-text">La Sécurité au cœur de <span class="bronze-text">nos interventions</span></h2>
+      <p class="qhse-lead">Nous appliquons les standards internationaux les plus rigoureux pour protéger nos équipes, vos infrastructures et l'environnement.</p>
+      
+      <div class="qhse-pillars">
+        <div class="pillar">
+          <lucide-icon name="shield-check" class="pillar-icon"></lucide-icon>
+          <h4>Sécurité Critique</h4>
+          <p>Protocoles de protection individuelle et collective stricts sur chaque chantier.</p>
+        </div>
+        <div class="pillar">
+          <lucide-icon name="award" class="pillar-icon"></lucide-icon>
+          <h4>Qualité Certifiée</h4>
+          <p>Sélection rigoureuse des composants et respect total des normes en vigueur.</p>
+        </div>
+        <div class="pillar">
+          <lucide-icon name="leaf" class="pillar-icon"></lucide-icon>
+          <h4>Éco-Responsable</h4>
+          <p>Optimisation énergétique et gestion responsable des déchets industriels.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section section">
+  <div class="container">
+    <div class="section-header">
+      <span class="label">Questions Fréquentes</span>
+      <h2 class="display-text">Tout savoir sur <span class="bronze-text">nos services</span></h2>
+    </div>
+
+    <div class="faq-accordion">
+      @for (item of faqItems; track $index) {
+        <div class="faq-item" [class.active]="item.isOpen">
+          <button class="faq-question" (click)="toggleFaq(item)">
+            <span>{{ item.question }}</span>
+            <lucide-icon [name]="item.isOpen ? 'minus' : 'plus'" class="faq-icon"></lucide-icon>
+          </button>
+          <div class="faq-answer">
+            <p>{{ item.answer }}</p>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
 <section class="services-cta section">
   <div class="container cta-inner">
     <h2 class="display-text">Un projet multi-services ? <span class="bronze-text">Parlons-en.</span></h2>
     <div class="cta-buttons">
-      <a href="https://wa.me/237600000000?text=Bonjour%2C%20j%27ai%20un%20projet%20multi-services." target="_blank" class="btn btn-whatsapp">Écrire sur WhatsApp</a>
+      <a href="https://wa.me/237656199216?text=Bonjour%2C%20j%27ai%20un%20projet%20multi-services." target="_blank" class="btn btn-whatsapp">Écrire sur WhatsApp</a>
       <a routerLink="/contact" class="btn btn-outline">Formulaire de contact</a>
     </div>
   </div>

@@ -71,7 +71,7 @@ export class ProofBarComponent {
     "10+ ans d'expérience",
     "200+ projets livrés",
     "11 domaines d'expertise",
-    "Yaoundé, Cameroun",
+    "Douala, Cameroun",
     "Certifié & Agréé",
     "Innovation & Fiabilité",
     "Énergie Industrielle",

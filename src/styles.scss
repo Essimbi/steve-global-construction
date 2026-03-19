@@ -1,22 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@300;400;600&family=Roboto+Mono:wght@400;500&display=swap');
 
 :root {
-  /* Colors - Refined for "Industrial Chic" BTP feel */
-  --bg-primary: #121212;
-  --bg-secondary: #1a1b1e;
-  --bg-card: #212226;
-  --bg-card-hover: #2a2b30;
+  /* Colors - Derived from the Logo for a technical "Steve Global Construction" identity */
+  --bg-primary: #050b14; /* Deep Navy Space */
+  --bg-secondary: #0a141f; /* Navy Slate */
+  --bg-card: #121e2d;
+  --bg-card-hover: #192b3d;
   
-  --accent-gold: #a68a56; /* Muted Bronze/Brass */
-  --accent-gold-light: #c5ad7d;
-  --accent-cta: #25d366;
+  --accent-gold: #F2A900; /* Logo Amber Lightning Bolt */
+  --accent-gold-light: #ffc845;
+  --accent-cyan: #009CDE; /* Logo Solar Cerulean */
+  --accent-green: #009639; /* Logo Paintbrush Green */
+  --accent-cta: #25d366; /* Keep standard WA green for recognition, or switch to logo-green? Standard for now. */
   
   --text-primary: #e8e6e3;
   --text-secondary: #9a9a94;
   --text-muted: #5c5c58;
   
-  --border: rgba(166, 138, 86, 0.15);
-  --border-hover: rgba(166, 138, 86, 0.4);
+  --border: rgba(242, 169, 0, 0.1);
+  --border-hover: rgba(242, 169, 0, 0.3);
 
   /* Typography */
   --font-display: 'Cormorant Garamond', serif;
@@ -140,7 +142,7 @@ img {
 }
 
 .gold-gradient-text {
-  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 50%, var(--accent-gold) 100%);
+  background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-light) 50%, #FFD700 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -170,7 +172,7 @@ img {
 .btn-primary:hover {
   background-color: var(--accent-gold-light);
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(200, 151, 41, 0.2);
+  box-shadow: 0 10px 20px rgba(242, 169, 0, 0.2);
 }
 
 .btn-outline {

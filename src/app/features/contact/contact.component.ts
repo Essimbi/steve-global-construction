@@ -68,6 +68,6 @@ export class ContactComponent {
       `Projet: ${v.message}`
     ].join('\n');
 
-    window.open(`https://wa.me/237600000000?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/237656199216?text=${encodeURIComponent(msg)}`, '_blank');
   }
 }

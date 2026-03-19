@@ -47,18 +47,25 @@ export class ServicesGridComponent implements AfterViewInit {
       const cards = this.el.nativeElement.querySelectorAll('.service-card');
       const triggerSection = this.el.nativeElement.querySelector('.services-grid-wrapper');
 
-      if (cards.length > 0 && triggerSection) {
-        gsap.from(cards, {
-          scrollTrigger: {
-            trigger: triggerSection,
-            start: 'top 80%',
-          },
-          y: 60,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.1,
-          ease: 'power3.out'
+      if (cards.length > 0) {
+        cards.forEach((card: HTMLElement, index: number) => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 92%',
+              once: true
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            delay: (index % 2) * 0.1,
+            ease: 'power3.out'
+          });
         });
+
+        setTimeout(() => {
+          ScrollTrigger.refresh();
+        }, 500);
       }
     }
   }

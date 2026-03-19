@@ -73,5 +73,5 @@ import { CommonModule } from '@angular/common';
   `]
 })
 export class WhatsappBtnComponent {
-  whatsappUrl = 'https://wa.me/237600000000?text=Bonjour%20Steve%20Global%20Construction%20!';
+  whatsappUrl = 'https://wa.me/237656199216?text=Bonjour%20Steve%20Global%20Construction%20!';
 }

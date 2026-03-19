@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { Router, NavigationEnd, RouterOutlet } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { WhatsappBtnComponent } from './shared/components/whatsapp-btn/whatsapp-btn.component';
@@ -20,7 +21,10 @@ import { CustomCursorComponent } from './shared/components/custom-cursor/custom-
   styleUrl: './app.scss'
 })
 export class App implements OnInit {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -39,6 +43,13 @@ export class App implements OnInit {
       wheelMultiplier: 1,
       touchMultiplier: 2,
       infinite: false,
+    });
+
+    // Reset scroll on navigation
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      lenis.scrollTo(0, { immediate: true });
     });
 
     function raf(time: number) {

@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
         <p class="reveal">Contactez-nous dès aujourd'hui pour un devis gratuit et personnalisé.</p>
         
         <div class="cta-buttons reveal">
-          <a href="https://wa.me/237600000000?text=Bonjour%20Steve%20Global%20Construction%2C%20je%20souhaite%20un%20devis." 
+          <a href="https://wa.me/237656199216?text=Bonjour%20Steve%20Global%20Construction%2C%20je%20souhaite%20un%20devis." 
              target="_blank" class="btn btn-whatsapp">
              Écrire sur WhatsApp
           </a>

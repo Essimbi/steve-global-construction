@@ -55,6 +55,6 @@ export class FeaturedProductsComponent implements AfterViewInit {
 
   onOrder(product: Product) {
     const text = encodeURIComponent(`Bonjour, je souhaite commander le produit suivant : *${product.name}*`);
-    window.open(`https://wa.me/237600000000?text=${text}`, '_blank');
+    window.open(`https://wa.me/237656199216?text=${text}`, '_blank');
   }
 }

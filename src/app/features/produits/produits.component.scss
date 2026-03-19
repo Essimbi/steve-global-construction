@@ -70,7 +70,7 @@
   &.active {
     background: var(--accent-gold);
     border-color: var(--accent-gold);
-    color: var(--bg-primary);
+    color: var(--text-primary);
   }
 }
 
@@ -120,7 +120,7 @@
     top: 15px;
     left: 15px;
     background: var(--accent-gold);
-    color: var(--bg-primary);
+    color: var(--text-primary);
     padding: 4px 12px;
     font-family: var(--font-mono);
     font-size: 0.6rem;

@@ -1,0 +1,54 @@
+.partners {
+  padding: 60px 0;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+
+.mb-30 { margin-bottom: 30px; }
+
+.partners-ticker {
+  display: flex;
+  width: 100%;
+}
+
+.ticker-scroll {
+  display: flex;
+  animation: ticker 40s linear infinite;
+  gap: 80px;
+  padding-left: 80px;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+}
+
+.partner-item {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  .partner-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+
+    &:hover {
+      opacity: 1;
+      color: var(--accent-gold);
+    }
+  }
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}

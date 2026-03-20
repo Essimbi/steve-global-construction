@@ -7,7 +7,9 @@
   <div class="container reasons-grid">
     @for (reason of reasons; track reason.title) {
       <div class="reason-item">
-        <div class="reason-icon">{{ reason.icon }}</div>
+        <div class="reason-icon">
+          <lucide-icon [name]="reason.icon" size="32"></lucide-icon>
+        </div>
         <div class="stat-wrapper">
           <span class="stat-number" [attr.data-value]="reason.stat">0</span>
           <span class="stat-suffix">{{ reason.suffix }}</span>

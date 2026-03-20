@@ -1,0 +1,94 @@
+.testimonials {
+  background: var(--bg-primary);
+}
+
+.mb-60 { margin-bottom: 60px; }
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.testimonial-card {
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+  }
+}
+
+.rating {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 25px;
+  color: #ccc;
+
+  .filled {
+    color: var(--accent-gold);
+  }
+}
+
+.content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-primary);
+  margin-bottom: 30px;
+  font-style: italic;
+  flex-grow: 1;
+}
+
+.client-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.client-avatar {
+  width: 45px;
+  height: 45px;
+  background: var(--accent-gold);
+  color: var(--text-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.client-meta {
+  .name {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .role {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+}
+
+.quote-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  pointer-events: none;
+}
+
+@media (max-width: 1024px) {
+  .testimonials-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+}

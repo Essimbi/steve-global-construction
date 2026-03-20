@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   z-index: 1000;
-  padding: 30px 0;
+  padding: 20px 0;
   transition: all var(--transition-smooth);
   border: none;
   border-bottom: 1px solid transparent;
@@ -12,10 +12,13 @@
   backdrop-filter: none;
 
   &.scrolled {
-    padding: 15px 0;
+    padding: 10px 0;
     background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
+
+    .logo-img {
+      height: 55px;
+    }
   }
 }
 
@@ -31,28 +34,15 @@
   gap: 12px;
   cursor: pointer;
 
-  .logo-monogram {
-    font-family: var(--font-display);
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    line-height: 1;
+  .logo-img {
+    height: 70px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
   }
 
-  .logo-text {
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    line-height: 1.2;
-    color: var(--text-primary);
+  &:hover .logo-img {
+    transform: scale(1.05);
   }
 }
 

@@ -1,0 +1,28 @@
+<section class="portfolio section">
+  <div class="container text-center mb-60">
+    <span class="label">Réalisations</span>
+    <h2 class="display-text gold-gradient-text">Nos Projets Majeurs</h2>
+    <p class="section-sub">Découvrez l'étendue de notre expertise à travers nos dernières réalisations sur le terrain.</p>
+  </div>
+
+  <div class="container project-grid">
+    @for (project of projects; track project.id) {
+      <div class="project-card">
+        <div class="project-image">
+          <img [src]="project.image" [alt]="project.title">
+          <div class="project-overlay">
+            <span class="project-category">{{ project.category }}</span>
+            <h3 class="project-title">{{ project.title }}</h3>
+            <p class="project-desc">{{ project.description }}</p>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+
+  <div class="container text-center mt-60">
+    <a href="https://wa.me/237656199216?text=Je%20souhaite%20voir%20en%20savoir%20plus%20sur%20vos%20projets." target="_blank" class="btn btn-outline">
+      Discuter de votre projet
+    </a>
+  </div>
+</section>

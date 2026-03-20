@@ -12,6 +12,7 @@ import { LucideAngularModule } from 'lucide-angular';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent {
+  heroImage = 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600';
   contactForm: FormGroup;
   submitted = false;
 

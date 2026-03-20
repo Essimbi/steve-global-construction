@@ -12,15 +12,40 @@
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
 
+  .hero-bg-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) contrast(1.1);
+      animation: kenBurns 30s ease-in-out infinite alternate;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg-secondary) 0%, transparent 50%);
+      z-index: 1;
+    }
+  }
+
   .hero-bg-texture {
     position: absolute;
     inset: 0;
-    background: linear-gradient(135deg, rgba(242, 169, 0, 0.04) 0%, transparent 60%);
+    z-index: 2;
+    opacity: 0.6;
+    background: linear-gradient(135deg, rgba(242, 169, 0, 0.05) 0%, transparent 60%);
+    pointer-events: none;
   }
 
   .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 10;
 
     .label { display: block; margin-bottom: 20px; }
 
@@ -197,4 +222,9 @@
 @media (max-width: 768px) {
   .product-grid { grid-template-columns: 1fr; }
   .filter-bar { flex-wrap: wrap; }
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
 }

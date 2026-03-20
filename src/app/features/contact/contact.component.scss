@@ -5,6 +5,35 @@
   padding: 160px 5% 80px;
   background: var(--bg-secondary);
   border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+
+  .hero-bg-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+
+    .hero-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.6) grayscale(0.1);
+      animation: kenBurns 30s ease-in-out infinite alternate;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, var(--bg-secondary) 0%, transparent 80%);
+      z-index: 1;
+    }
+  }
+
+  .container {
+    position: relative;
+    z-index: 10;
+  }
 
   .label { display: block; margin-bottom: 20px; }
 
@@ -169,4 +198,8 @@
 
 @media (max-width: 768px) {
   .form-row { grid-template-columns: 1fr; }
+}
+@keyframes kenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.1); }
 }

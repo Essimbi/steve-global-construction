@@ -1,0 +1,21 @@
+<section class="partners">
+  <div class="container mb-30">
+    <span class="label">Partenariat</span>
+  </div>
+  
+  <div class="partners-ticker">
+    <div class="ticker-scroll">
+      @for (partner of partners; track partner.name) {
+        <div class="partner-item">
+          <span class="partner-name">{{ partner.name }}</span>
+        </div>
+      }
+      <!-- Duplicate content for seamless loop -->
+      @for (partner of partners; track partner.name + '_copy') {
+        <div class="partner-item">
+          <span class="partner-name">{{ partner.name }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

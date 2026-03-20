@@ -1,0 +1,29 @@
+<section class="testimonials section">
+  <div class="container text-center mb-60">
+    <span class="label">Témoignages</span>
+    <h2 class="display-text gold-gradient-text">Ce que disent nos clients</h2>
+  </div>
+
+  <div class="container testimonials-grid">
+    @for (item of testimonials; track item.id) {
+      <div class="testimonial-card glass">
+        <div class="rating">
+          @for (star of [1,2,3,4,5]; track star) {
+            <lucide-icon name="sparkles" [class.filled]="star <= item.rating" size="14"></lucide-icon>
+          }
+        </div>
+        <p class="content">"{{ item.content }}"</p>
+        <div class="client-info">
+          <div class="client-avatar">{{ item.name.charAt(0) }}</div>
+          <div class="client-meta">
+            <h4 class="name">{{ item.name }}</h4>
+            <p class="role">{{ item.role }}</p>
+          </div>
+        </div>
+        <div class="quote-icon">
+          <lucide-icon name="image" size="40" opacity="0.05"></lucide-icon>
+        </div>
+      </div>
+    }
+  </div>
+</section>

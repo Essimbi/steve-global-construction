@@ -25,24 +25,38 @@ export class PortfolioComponent implements AfterViewInit {
   projects: Project[] = [
     {
       id: 1,
-      title: 'Centrale Solaire Off-Grid',
-      category: 'Énergie',
-      image: 'https://images.unsplash.com/photo-1509391366360-fe5bb5858345?auto=format&fit=crop&q=80&w=800',
-      description: 'Installation d\'une ferme solaire de 500kW pour un site industriel isolé.'
+      title: 'Installation Électrique Tertiaire',
+      category: 'Électricité',
+      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(22).jpeg',
+      description: 'Déploiement complet du réseau électrique pour un complexe de bureaux moderne.'
     },
     {
       id: 2,
-      title: 'Résidence Horizon',
-      category: 'Construction',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
-      description: 'Immeuble de standing R+5 avec finitions architecturales haut de gamme.'
+      title: 'Suite Parentale de Luxe',
+      category: 'Finition & Déco',
+      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(37).jpeg',
+      description: 'Aménagement complet d\'une chambre haut de gamme avec habillage mural doré.'
     },
     {
       id: 3,
-      title: 'Réseau d\'Adduction d\'Eau',
-      category: 'Forage',
-      image: 'https://images.unsplash.com/photo-1541944743827-e04bb645f946?auto=format&fit=crop&q=80&w=800',
-      description: 'Système complet de pompage et de distribution pour une zone rurale.'
+      title: 'Cuisine Moderne Équipée',
+      category: 'Menuiserie & Plomberie',
+      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(26).jpeg',
+      description: 'Installation d\'une cuisine contemporaine avec plan de travail de précision.'
+    },
+    {
+      id: 4,
+      title: 'Bar & Lounge Premium',
+      category: 'Électricité & Déco',
+      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(32).jpeg',
+      description: 'Création d\'un espace détente avec éclairage LED dynamique haute performance.'
+    },
+    {
+      id: 5,
+      title: 'Plomberie Haute Performance',
+      category: 'Plomberie',
+      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(29).jpeg',
+      description: 'Réseau complexe de distribution de fluides pour installation industrielle.'
     }
   ];
 

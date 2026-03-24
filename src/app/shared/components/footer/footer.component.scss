@@ -49,7 +49,7 @@
 
     a {
       font-size: 0.9rem;
-      color: var(--text-secondary);
+      color: rgba(255, 255, 255, 0.7);
 
       &:hover {
         color: var(--accent-gold);
@@ -65,14 +65,33 @@
   li {
     margin-bottom: 25px;
 
+    .contact-item {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+
+      .contact-icon {
+        color: var(--accent-gold);
+        width: 18px;
+        height: 18px;
+        margin-top: 3px;
+        flex-shrink: 0;
+      }
+    }
+
     .label {
       display: block;
       margin-bottom: 5px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: rgba(255, 255, 255, 0.5);
     }
 
     p {
-      font-size: 1.1rem;
-      color: var(--text-primary);
+      font-size: 1.05rem;
+      color: white;
+      line-height: 1.4;
     }
   }
 }

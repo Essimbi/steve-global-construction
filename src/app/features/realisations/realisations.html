@@ -1,0 +1,108 @@
+<!-- Hero Section -->
+<section class="realisations-hero">
+  <div class="hero-bg-container" style="background-image: url('assets/services/beton.jpg');">
+    <div class="hero-overlay"></div>
+  </div>
+  <div class="hero-bg-texture"></div>
+  <div class="container hero-content">
+    <span class="label">Galerie de Projets</span>
+    <h1 class="display-text"><span style="color: white;">Nos</span> <br><span class="bronze-text">Réalisations</span></h1>
+    <p class="hero-sub">Découvrez l'excellence de Steve Global Construction à travers nos chantiers les plus emblématiques.</p>
+  </div>
+</section>
+
+<!-- Filter & Gallery Section -->
+<section class="gallery-section section">
+  <div class="container">
+    <div class="section-top">
+       <span class="label">Portfolio</span>
+       <h2 class="display-text">Explorez nos <span class="bronze-text">Chef-d'œuvres</span></h2>
+       <p class="section-lead">Chaque image raconte une histoire de rigueur, de passion et d'innovation technique.</p>
+    </div>
+
+    <!-- Filters -->
+    <div class="gallery-filters">
+      @for (cat of categories; track cat) {
+        <button 
+          class="filter-btn" 
+          [class.active]="activeCategory === cat" 
+          (click)="filterByCategory(cat)">
+          {{ cat }}
+        </button>
+      }
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="realisations-grid">
+      @for (item of filteredImages; track $index) {
+        <div class="grid-card" (click)="openModal($index)">
+          <div class="card-image">
+            <img [src]="item.url" [alt]="item.service">
+            <div class="card-overlay">
+              <div class="overlay-content">
+                <span class="category-tag">{{ item.category }}</span>
+                <h3 class="project-title">{{ item.service }}</h3>
+                <div class="card-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+    
+    @if (filteredImages.length === 0) {
+      <div class="empty-state">
+        <lucide-icon name="image-off" class="empty-icon"></lucide-icon>
+        <p>Bientôt plus de réalisations dans cette catégorie.</p>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Lightbox Modal -->
+@if (isModalOpen) {
+  <div class="lightbox-modal" (click)="closeModal()">
+    <button class="modal-close" (click)="closeModal()">
+      <lucide-icon name="x"></lucide-icon>
+    </button>
+    
+    <button class="nav-btn prev" (click)="prevImage($event)">
+      <lucide-icon name="chevron-left"></lucide-icon>
+    </button>
+    
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <div class="image-wrapper">
+        <img [src]="selectedImage.url" [alt]="selectedImage.service" class="main-image">
+        <div class="image-footer">
+          <span class="category">{{ selectedImage.category }}</span>
+          <h3 class="title">{{ selectedImage.service }}</h3>
+        </div>
+      </div>
+    </div>
+    
+    <button class="nav-btn next" (click)="nextImage($event)">
+      <lucide-icon name="chevron-right"></lucide-icon>
+    </button>
+
+    <div class="modal-counter">
+      {{ selectedIndex + 1 }} / {{ filteredImages.length }}
+    </div>
+  </div>
+}
+
+<!-- CTA Section -->
+<section class="realisations-cta section">
+  <div class="container cta-inner">
+    <h2 class="display-text">Votre projet mérite la <span class="bronze-text">perfection.</span></h2>
+    <p>Confiez vos travaux à des experts passionnés par l'excellence.</p>
+    <div class="cta-buttons">
+      <a routerLink="/contact" class="btn btn-primary">Démarrer un projet</a>
+      <a href="https://wa.me/237656199216" target="_blank" class="btn btn-whatsapp">
+        Parler à un expert
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="btn-icon-svg">
+          <path d="M12.031 2c-5.511 0-9.989 4.478-9.989 9.989 0 1.761.458 3.473 1.33 4.974l-1.412 5.161 5.283-1.386a9.932 9.932 0 0 0 4.788 1.238l.004.001c5.511 0 9.989-4.478 9.989-9.989 0-2.662-1.036-5.165-2.919-7.049-1.884-1.883-4.386-2.919-7.049-2.919zm5.973 14.126c-.256.721-1.5 1.303-2.067 1.381-.567.078-1.115.111-3.578-.856-2.463-.967-4.045-3.471-4.167-3.633-.122-.164-1.09-1.446-1.09-2.759 0-1.314.689-1.96.932-2.227.243-.266.527-.333.703-.333.175 0 .351-.001.503.007.165.008.388-.063.606.464.218.527.744 1.812.808 1.944.064.132.107.285.019.458-.088.174-.117.301-.256.463-.141.162-.295.362-.421.485-.141.139-.288.291-.124.572.164.281.727 1.2 1.56 1.942.833.742 1.542 1.014 1.824 1.155.281.141.444.117.61-.078.165-.194.708-.824.896-1.107.189-.282.378-.236.637-.14 0 0 1.64.773 1.921.914.282.14.47.209.539.328.068.12.068.69-.188 1.411z"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

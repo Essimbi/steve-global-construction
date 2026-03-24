@@ -48,10 +48,6 @@
     position: relative;
     z-index: 10;
     
-    .label {
-      display: block;
-      margin-bottom: 20px;
-    }
     
     h1 {
       font-size: clamp(3rem, 7vw, 6rem);
@@ -253,26 +249,15 @@
     .service-actions {
       .btn-whatsapp {
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
         padding: 22px 35px;
-        font-size: 1.1rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        font-size: 1.10rem;
         background: var(--accent-gold);
         color: var(--bg-primary);
-        border: none;
-        box-shadow: 0 10px 20px rgba(242, 169, 0, 0.2);
         animation: buttonPulse 3s infinite;
         
         &:hover {
           background: white;
           color: var(--text-primary);
-          transform: translateY(-3px);
-          box-shadow: 0 15px 30px rgba(252, 252, 252, 0.2);
           
           .btn-icon { transform: translateX(8px); }
         }
@@ -308,14 +293,6 @@
   }
 }
 
-/* Sections Header Helper */
-.section-header {
-  margin-bottom: 60px;
-  &.center { text-align: center; }
-  
-  .label { margin-bottom: 15px; display: block; }
-  h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
-}
 
 /* Methodology */
 .methodology {
@@ -530,13 +507,3 @@
   }
 }
 
-@keyframes kenBurns {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
-}
-
-@keyframes buttonPulse {
-  0% { transform: scale(1); box-shadow: 0 10px 20px rgba(242, 169, 0, 0.2); }
-  50% { transform: scale(1.02); box-shadow: 0 15px 30px rgba(242, 169, 0, 0.4); }
-  100% { transform: scale(1); box-shadow: 0 10px 20px rgba(242, 169, 0, 0.2); }
-}

@@ -19,17 +19,27 @@
 
 .project-card {
   position: relative;
-  aspect-ratio: 4/5;
+  height: 420px;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
+  box-shadow: 0 10px 30px rgba(10, 20, 32, 0.08);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+
+  &.featured {
+    grid-column: span 2;
+  }
 
   &:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(10, 20, 32, 0.15);
+    
     .project-image img {
-      transform: scale(1.1);
+      transform: scale(1.05);
     }
     .project-overlay {
       transform: translateY(0);
-      background: linear-gradient(to top, var(--text-primary) 0%, rgba(10, 20, 32, 0.8) 50%, transparent 100%);
+      background: linear-gradient(to top, rgba(10, 20, 32, 0.95) 0%, rgba(10, 20, 32, 0.8) 60%, transparent 100%);
     }
     .project-desc {
       opacity: 1;
@@ -58,7 +68,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: linear-gradient(to top, rgba(10, 20, 32, 0.8) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(10, 20, 32, 0.95) 0%, rgba(10, 20, 32, 0.4) 40%, transparent 80%);
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   color: white;
 
@@ -69,18 +79,22 @@
     letter-spacing: 0.2em;
     color: var(--accent-gold);
     margin-bottom: 15px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   }
 
   .project-title {
     font-size: 1.8rem;
     margin-bottom: 15px;
     line-height: 1.1;
+    color: #ffffff;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
   }
 
   .project-desc {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 1.6;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
     opacity: 0;
     transform: translateY(20px);
     transition: all 0.5s ease 0.15s;
@@ -92,14 +106,18 @@
   .project-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .project-card.featured {
+    grid-column: span 2;
+  }
 }
 
 @media (max-width: 768px) {
   .project-grid {
     grid-template-columns: 1fr;
   }
-  .project-card {
-    aspect-ratio: 16/10;
+  .project-card, .project-card.featured {
+    grid-column: span 1;
+    height: 350px;
   }
 }
 

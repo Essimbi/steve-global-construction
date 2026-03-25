@@ -1,5 +1,6 @@
 import { Component, AfterViewInit, Inject, PLATFORM_ID, ElementRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -17,7 +18,7 @@ interface Project {
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, RouterModule, LucideAngularModule],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss'
 })

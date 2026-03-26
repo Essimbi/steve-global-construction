@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, Inject, PLATFORM_ID, ElementRef } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy, Inject, PLATFORM_ID, ElementRef } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { RouterModule } from '@angular/router';
@@ -16,6 +16,11 @@ interface FaqItem {
   isOpen: boolean;
 }
 
+interface CarouselState {
+  currentIndex: number;
+  autoplayTimer: any;
+}
+
 @Component({
   selector: 'app-services',
   standalone: true,
@@ -23,9 +28,12 @@ interface FaqItem {
   templateUrl: './services.component.html',
   styleUrl: './services.component.scss'
 })
-export class ServicesComponent implements AfterViewInit {
+export class ServicesComponent implements AfterViewInit, OnDestroy {
   heroImage = 'assets/hero-services.png';
   services: Service[] = [];
+  carouselStates: Map<number, CarouselState> = new Map();
+  private platformId: Object;
+  private isBrowser: boolean = false;
 
   faqItems: FaqItem[] = [
     {
@@ -51,15 +59,32 @@ export class ServicesComponent implements AfterViewInit {
   ];
 
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(PLATFORM_ID) platformId: Object,
     private el: ElementRef,
     private servicesData: ServicesDataService
   ) {
+    this.platformId = platformId;
+    this.isBrowser = isPlatformBrowser(platformId);
     this.services = this.servicesData.getServices();
+    
+    // Initialize carousel states for each service
+    this.services.forEach(service => {
+      this.carouselStates.set(service.id, {
+        currentIndex: 0,
+        autoplayTimer: null
+      });
+    });
   }
 
   ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
+    if (this.isBrowser) {
+      // Initialize carousels
+      this.services.forEach(service => {
+        if (service.gallery && service.gallery.length > 0) {
+          this.startAutoplay(service.id);
+        }
+      });
+
       const cards = this.el.nativeElement.querySelectorAll('.service-detail-card');
       
       if (cards.length > 0) {
@@ -128,5 +153,70 @@ export class ServicesComponent implements AfterViewInit {
     setTimeout(() => {
       ScrollTrigger.refresh();
     }, 300);
+  }
+
+  // Carousel methods
+  startAutoplay(serviceId: number) {
+    const state = this.carouselStates.get(serviceId);
+    const service = this.services.find(s => s.id === serviceId);
+    
+    if (!state || !service || !service.gallery || service.gallery.length <= 1) return;
+
+    // Stop any existing autoplay
+    this.stopAutoplay(serviceId);
+
+    state.autoplayTimer = setInterval(() => {
+      this.nextSlide(serviceId);
+    }, 4000); // Change slide every 4 seconds
+  }
+
+  stopAutoplay(serviceId: number) {
+    const state = this.carouselStates.get(serviceId);
+    if (state && state.autoplayTimer) {
+      clearInterval(state.autoplayTimer);
+      state.autoplayTimer = null;
+    }
+  }
+
+  nextSlide(serviceId: number) {
+    const state = this.carouselStates.get(serviceId);
+    const service = this.services.find(s => s.id === serviceId);
+    
+    if (!state || !service || !service.gallery) return;
+
+    const galleryLength = service.gallery.length;
+    state.currentIndex = (state.currentIndex + 1) % galleryLength;
+    
+    // Restart autoplay timer
+    this.startAutoplay(serviceId);
+  }
+
+  prevSlide(serviceId: number) {
+    const state = this.carouselStates.get(serviceId);
+    const service = this.services.find(s => s.id === serviceId);
+    
+    if (!state || !service || !service.gallery) return;
+
+    const galleryLength = service.gallery.length;
+    state.currentIndex = (state.currentIndex - 1 + galleryLength) % galleryLength;
+    
+    // Restart autoplay timer
+    this.startAutoplay(serviceId);
+  }
+
+  getCurrentSlide(serviceId: number): string {
+    const state = this.carouselStates.get(serviceId);
+    const service = this.services.find(s => s.id === serviceId);
+    
+    if (!state || !service || !service.gallery) return service?.image || '';
+    
+    return service.gallery[state.currentIndex];
+  }
+
+  ngOnDestroy() {
+    // Clean up all autoplay timers
+    this.carouselStates.forEach((state, serviceId) => {
+      this.stopAutoplay(serviceId);
+    });
   }
 }

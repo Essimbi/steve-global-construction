@@ -4,7 +4,6 @@ import { HeroComponent } from './components/hero/hero.component';
 import { ProofBarComponent } from './components/proof-bar/proof-bar.component';
 import { AboutSectionComponent } from './components/about-section/about-section.component';
 import { ServicesGridComponent } from './components/services-grid/services-grid.component';
-import { FeaturedProductsComponent } from './components/featured-products/featured-products.component';
 import { WhyChooseUsComponent } from './components/why-choose-us/why-choose-us.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PartnersComponent } from './components/partners/partners.component';
@@ -22,7 +21,6 @@ import { FinalCtaComponent } from './components/final-cta/final-cta.component';
     ServicesGridComponent,
     PartnersComponent,
     PortfolioComponent,
-    FeaturedProductsComponent,
     WhyChooseUsComponent,
     TestimonialsComponent,
     FinalCtaComponent
@@ -35,7 +33,6 @@ import { FinalCtaComponent } from './components/final-cta/final-cta.component';
       <app-about-section></app-about-section>
       <app-services-grid></app-services-grid>
       <app-portfolio></app-portfolio>
-      <app-featured-products></app-featured-products>
       <app-why-choose-us></app-why-choose-us>
       <app-testimonials></app-testimonials>
       <app-final-cta></app-final-cta>

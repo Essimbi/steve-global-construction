@@ -2,6 +2,7 @@ import { Component, AfterViewInit, Inject, PLATFORM_ID, ElementRef } from '@angu
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
+import { ServicesDataService } from '../../../../core/services/services.service';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -23,45 +24,38 @@ interface Project {
   styleUrl: './portfolio.component.scss'
 })
 export class PortfolioComponent implements AfterViewInit {
-  projects: Project[] = [
-    {
-      id: 1,
-      title: 'Installation Électrique Tertiaire',
-      category: 'Électricité',
-      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(22).jpeg',
-      description: 'Déploiement complet du réseau électrique pour un complexe de bureaux moderne.'
-    },
-    {
-      id: 2,
-      title: 'Suite Parentale de Luxe',
-      category: 'Finition & Déco',
-      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(37).jpeg',
-      description: 'Aménagement complet d\'une chambre haut de gamme avec habillage mural doré.'
-    },
-    {
-      id: 3,
-      title: 'Cuisine Moderne Équipée',
-      category: 'Menuiserie & Plomberie',
-      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(26).jpeg',
-      description: 'Installation d\'une cuisine contemporaine avec plan de travail de précision.'
-    },
-    {
-      id: 4,
-      title: 'Bar & Lounge Premium',
-      category: 'Électricité & Déco',
-      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(32).jpeg',
-      description: 'Création d\'un espace détente avec éclairage LED dynamique haute performance.'
-    },
-    {
-      id: 5,
-      title: 'Plomberie Haute Performance',
-      category: 'Plomberie',
-      image: 'assets/images/WhatsApp Image 2026-03-14 at 15.58.33(29).jpeg',
-      description: 'Réseau complexe de distribution de fluides pour installation industrielle.'
-    }
-  ];
+  projects: Project[] = [];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object, private el: ElementRef) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object, 
+    private el: ElementRef,
+    private servicesData: ServicesDataService
+  ) {
+    this.initializeProjects();
+  }
+
+  private initializeProjects() {
+    // Services phares à afficher + autres services
+    const serviceIds = [5, 12, 15, 16, 4, 9, 3]; // Électricité, Vente Électrique & Solaire, Vidéo Surveillance, Froid & Climatisation, Forage, Plâtrerie, Énergies Renouvelables
+    const projects: Project[] = [];
+    let projectId = 1;
+
+    serviceIds.forEach(serviceId => {
+      const service = this.servicesData.getServiceById(serviceId);
+      if (service && service.gallery && service.gallery.length > 0) {
+        // Prendre la première image de la galerie du service
+        projects.push({
+          id: projectId++,
+          title: `Réalisation ${service.name}`,
+          category: service.name,
+          image: service.gallery[0],
+          description: service.description
+        });
+      }
+    });
+
+    this.projects = projects;
+  }
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {

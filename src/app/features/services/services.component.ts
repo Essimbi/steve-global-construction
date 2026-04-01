@@ -65,7 +65,7 @@ export class ServicesComponent implements AfterViewInit, OnDestroy {
   ) {
     this.platformId = platformId;
     this.isBrowser = isPlatformBrowser(platformId);
-    this.services = this.servicesData.getServices();
+    this.services = this.reorganizeServices(this.servicesData.getServices());
     
     // Initialize carousel states for each service
     this.services.forEach(service => {
@@ -74,6 +74,16 @@ export class ServicesComponent implements AfterViewInit, OnDestroy {
         autoplayTimer: null
       });
     });
+  }
+
+  private reorganizeServices(allServices: Service[]): Service[] {
+    // Services phares à mettre en avant (par ordre souhaité)
+    const flagshipServiceIds = [5, 12, 15, 16]; // Électricité, Vente Électrique & Solaire, Vidéo Surveillance, Froid & Climatisation
+    
+    const flagshipServices = allServices.filter(s => flagshipServiceIds.includes(s.id));
+    const otherServices = allServices.filter(s => !flagshipServiceIds.includes(s.id));
+    
+    return [...flagshipServices, ...otherServices];
   }
 
   ngAfterViewInit() {

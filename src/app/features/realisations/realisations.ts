@@ -23,6 +23,9 @@ export class RealisationsComponent implements OnInit {
   selectedImage: any = null;
   selectedIndex = 0;
 
+  // Filter Dropdown State
+  isFilterOpen = false;
+
   ngOnInit() {
     this.allImages = this.servicesService.getAllImages();
     this.categories = ['Tous', ...this.servicesService.getCategories()];
@@ -36,6 +39,10 @@ export class RealisationsComponent implements OnInit {
     } else {
       this.filteredImages = this.allImages.filter(img => img.category === category);
     }
+  }
+
+  toggleFilter() {
+    this.isFilterOpen = !this.isFilterOpen;
   }
 
   openModal(index: number) {

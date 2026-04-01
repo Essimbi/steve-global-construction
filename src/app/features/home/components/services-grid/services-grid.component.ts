@@ -21,7 +21,7 @@ export class ServicesGridComponent implements AfterViewInit {
     private el: ElementRef,
     private servicesData: ServicesDataService
   ) {
-    this.services = this.servicesData.getServices();
+    this.services = this.servicesData.getHomepageServices();
   }
 
   services: Service[] = [];

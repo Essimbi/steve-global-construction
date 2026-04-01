@@ -54,7 +54,8 @@ export class ServicesDataService {
         this.SERVICES_PATH + 'energie/energie_1.jpg',
         this.SERVICES_PATH + 'energie/energie_2.jpg',
         this.SERVICES_PATH + 'energie/energie_3.jpg',
-        this.SERVICES_PATH + 'energie/energie_4.jpg'
+        this.SERVICES_PATH + 'energie/energie_4.jpg',
+        this.IMAGES_PATH + 'rea/WhatsApp Image 2026-03-30 at 09.54.40 (3).jpeg'
       ]
     },
     {
@@ -78,7 +79,10 @@ export class ServicesDataService {
       gallery: [
         this.SERVICES_PATH + 'electricite/electricite_1.jpg',
         this.SERVICES_PATH + 'electricite/electricite_2.jpg',
-        this.SERVICES_PATH + 'electricite/electricite_3.jpg'
+        this.SERVICES_PATH + 'electricite/electricite_3.jpg',
+        this.IMAGES_PATH + 'rea/WhatsApp Image 2026-03-30 at 09.54.39.jpeg',
+        this.IMAGES_PATH + 'rea/WhatsApp Image 2026-03-30 at 09.54.40 (1).jpeg',
+        this.IMAGES_PATH + 'rea/WhatsApp Image 2026-03-30 at 09.54.40.jpeg'
       ]
     },
     {
@@ -90,7 +94,8 @@ export class ServicesDataService {
       gallery: [
         this.SERVICES_PATH + 'plomberie/plomberie_1.jpg',
         this.SERVICES_PATH + 'plomberie/plomberie_2.jpg',
-        this.SERVICES_PATH + 'plomberie/plomberie_3.jpg'
+        this.SERVICES_PATH + 'plomberie/plomberie_3.jpg',
+        this.IMAGES_PATH + 'rea/WhatsApp Image 2026-03-30 at 09.54.40 (2).jpeg'
       ]
     },
     {
@@ -155,15 +160,18 @@ export class ServicesDataService {
       ]
     },
     {
-      id: 12, name: 'Vente de Matériels Électriques', icon: 'shopping-cart',
+      id: 12, name: 'Vente de Matériels Électriques et Accessoires Solaire', icon: 'shopping-cart',
       image: this.SERVICES_PATH + 'vente_electrique/vente_electrique_1.jpg',
-      description: 'Accédez à un catalogue complet de matériel électrique certifié. Disjoncteurs, câbles armés, onduleurs et composants industriels des plus grandes marques internationales.',
-      deliverables: ['Composants basse et moyenne tension', 'Équipements de protection et coupure', 'Conseil technique et SAV réactif'],
-      waText: 'Vente%20mat%C3%A9riel%20%C3%A9lectrique',
+      description: 'Accédez à un catalogue complet de matériel électrique certifié et d\'accessoires solaires. Disjoncteurs, câbles armés, onduleurs, panneaux solaires et composants industriels des plus grandes marques internationales.',
+      deliverables: ['Composants basse et moyenne tension', 'Équipements de protection et coupure', 'Panneaux solaires et accessoires solaires', 'Conseil technique et SAV réactif'],
+      waText: 'Vente%20mat%C3%A9riel%20%C3%A9lectrique%20et%20accessoires%20solaire',
       gallery: [
         this.SERVICES_PATH + 'vente_electrique/vente_electrique_1.jpg',
         this.SERVICES_PATH + 'vente_electrique/vente_electrique_2.jpg',
-        this.SERVICES_PATH + 'vente_electrique/vente_electrique_3.jpg'
+        this.SERVICES_PATH + 'vente_electrique/vente_electrique_3.jpg',
+        this.SERVICES_PATH + 'vente_electrique/lampadaire_4.jpg',
+        this.SERVICES_PATH + 'vente_electrique/cable.jpg',
+        this.SERVICES_PATH + 'vente_electrique/batterie.jpg',
       ]
     },
     {
@@ -189,11 +197,43 @@ export class ServicesDataService {
         this.SERVICES_PATH + 'reseau_bt/reseau_bt_2.jpg',
         this.SERVICES_PATH + 'reseau_bt/reseau_bt_3.jpg'
       ]
+    },
+    {
+      id: 15, name: 'Vidéo Surveillance', icon: 'wrench',
+      image: this.IMAGES_PATH + 'cameras/camera_1.jpg',
+      description: 'Sécurisez vos sites et installations avec nos systèmes de vidéo surveillance ultra-performants. Caméras haute résolution, enregistrement intelligent et surveillance 24/7 pour une tranquillité complète.',
+      deliverables: ['Installation de caméras IP première qualité', 'Système d\'enregistrement et stockage sécurisé', 'Monitoring à distance et alertes en temps réel'],
+      waText: 'Vid%C3%A9o%20surveillance',
+      gallery: [
+        this.IMAGES_PATH + 'cameras/camera_1.jpg',
+        this.IMAGES_PATH + 'cameras/camera_2.jpg',
+        this.IMAGES_PATH + 'cameras/camera_3.jpg',
+        this.IMAGES_PATH + 'cameras/camera_4.jpg'
+      ]
+    },
+    {
+      id: 16, name: 'Froid et Climatisation', icon: 'settings',
+      image: this.IMAGES_PATH + 'froid/froid_1.jpg',
+      description: 'Maîtrisez le confort thermique de vos espaces en toutes saisons. Solutions de froid industriel, climatisation commerciale et systèmes performants pour une ambiance optimale.',
+      deliverables: ['Dimensionnement et conception des installations', 'Installation de compresseurs et évaporateurs', 'Maintenance préventive et dépannage 24/7'],
+      waText: 'Froid%20et%20climatisation',
+      gallery: [
+        this.IMAGES_PATH + 'froid/froid_1.jpg',
+        this.IMAGES_PATH + 'froid/froidf_2.jpg',
+        this.IMAGES_PATH + 'froid/froid_3.jpg',
+        this.IMAGES_PATH + 'froid/froid_4.jpg'
+      ]
     }
   ];
 
   getServices(): Service[] {
     return this.services;
+  }
+
+  getHomepageServices(): Service[] {
+    // Retourne uniquement les services à afficher sur la home page
+    const homepageServiceIds = [5, 12, 15, 16]; // Électricité, Vente Électrique & Solaire, Vidéo Surveillance, Froid & Climatisation
+    return this.services.filter(s => homepageServiceIds.includes(s.id));
   }
 
   getServiceById(id: number): Service | undefined {
@@ -202,6 +242,8 @@ export class ServicesDataService {
 
   getAllImages() {
     const allImages: { url: string; service: string; category: string }[] = [];
+    
+    // Ajouter les images des services
     this.services.forEach(s => {
       if (s.gallery) {
         s.gallery.forEach(img => {
@@ -213,12 +255,29 @@ export class ServicesDataService {
         });
       }
     });
+
+    // Ajouter les images des lampadaires depuis le dossier images
+    const lampImages = [
+      this.IMAGES_PATH + 'lampadaires/lampadaire_1.jpg',
+      this.IMAGES_PATH + 'lampadaires/lampadaire_3.jpg'
+    ];
+    lampImages.forEach(img => {
+      allImages.push({
+        url: img,
+        service: 'Lampadaires et Éclairage Public',
+        category: 'Lampadaires et Éclairage Public'
+      });
+    });
+
     return allImages;
   }
 
   getCategories() {
-    return this.services
+    const serviceCategories = this.services
       .filter(s => s.gallery && s.gallery.length > 0)
       .map(s => s.name);
+    
+    // Ajouter la catégorie des lampadaires
+    return [...serviceCategories, 'Lampadaires et Éclairage Public'];
   }
 }

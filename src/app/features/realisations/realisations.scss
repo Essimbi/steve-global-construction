@@ -78,156 +78,58 @@
   }
 }
 
-/* Filter Dropdown - All screens */
-.filter-dropdown-wrapper {
-  max-width: 420px;
+/* Filter Horizontal Pills */
+.filter-pills-wrapper {
   margin: 0 auto 60px;
+  width: 100%;
 }
 
-.filter-dropdown {
+.filter-pills {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 18px 24px;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 12px; /* Pour masquer/laisser respirer avec la scrollbar */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  
+  &::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  @media (min-width: 992px) {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible;
+  }
+}
+
+.filter-pill {
+  padding: 10px 24px;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  background: var(--bg-secondary);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
   cursor: pointer;
-  position: relative;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   user-select: none;
+  flex-shrink: 0;
 
   &:hover {
     border-color: var(--accent-gold);
-    box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.08);
+    color: var(--text-primary);
   }
 
-  &.open {
-    border-color: var(--accent-gold);
-    border-radius: 14px 14px 0 0;
-    box-shadow: 0 0 0 3px rgba(242, 169, 0, 0.08);
-  }
-
-  .filter-selected {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    overflow: hidden;
-
-    .filter-dot {
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--accent-gold);
-      flex-shrink: 0;
-    }
-
-    .filter-label {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--text-secondary);
-      flex-shrink: 0;
-    }
-
-    .filter-value {
-      font-size: 0.9rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-
-  .filter-chevron {
-    width: 20px;
-    height: 20px;
-    color: var(--accent-gold);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    flex-shrink: 0;
-  }
-
-  &.open .filter-chevron {
-    transform: rotate(180deg);
-  }
-
-  // Dropdown list
-  .filter-dropdown-list {
-    position: absolute;
-    top: 100%;
-    left: -1px;
-    right: -1px;
-    background: var(--bg-secondary);
-    border: 1px solid var(--accent-gold);
-    border-top: none;
-    border-radius: 0 0 14px 14px;
-    z-index: 200;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-                opacity 0.3s ease;
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-  }
-
-  &.open .filter-dropdown-list {
-    max-height: 70vh;
-    overflow-y: auto;
-    opacity: 1;
-  }
-
-  .filter-option {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    width: 100%;
-    padding: 14px 24px;
-    text-align: left;
-    font-size: 0.9rem;
-    font-weight: 500;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--border);
-    color: var(--text-secondary);
-    cursor: pointer;
-    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
-
-    &:last-child { border-bottom: none; }
-
-    .option-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      border: 2px solid var(--border);
-      flex-shrink: 0;
-      transition: background 0.2s ease, border-color 0.2s ease;
-
-      &.active {
-        background: var(--accent-gold);
-        border-color: var(--accent-gold);
-      }
-    }
-
-    &:hover {
-      background: rgba(242, 169, 0, 0.04);
-      color: var(--text-primary);
-      padding-left: 32px;
-    }
-
-    &.active {
-      color: var(--accent-gold);
-      font-weight: 700;
-      background: rgba(242, 169, 0, 0.06);
-    }
-  }
-
-  // Scrollbar styling for long lists
-  .filter-dropdown-list::-webkit-scrollbar { width: 4px; }
-  .filter-dropdown-list::-webkit-scrollbar-track { background: transparent; }
-  .filter-dropdown-list::-webkit-scrollbar-thumb {
+  &.active {
     background: var(--accent-gold);
-    border-radius: 2px;
+    color: var(--bg-primary);
+    border-color: var(--accent-gold);
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(242, 169, 0, 0.3);
   }
 }
 

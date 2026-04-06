@@ -19,28 +19,17 @@
        <p class="section-lead">Chaque image raconte une histoire de rigueur, de passion et d'innovation technique.</p>
     </div>
 
-    <!-- Filter Dropdown -->
-    <div class="filter-dropdown-wrapper">
-      <div class="filter-dropdown" [class.open]="isFilterOpen" (click)="toggleFilter()">
-        <span class="filter-selected">
-          <span class="filter-dot"></span>
-          <span class="filter-label">Filtrer :</span>
-          <span class="filter-value">{{ activeCategory }}</span>
-        </span>
-        <lucide-icon name="chevron-down" class="filter-chevron"></lucide-icon>
-
-        <!-- Options list -->
-        <div class="filter-dropdown-list" (click)="$event.stopPropagation()">
-          @for (cat of categories; track cat) {
-            <button
-              class="filter-option"
-              [class.active]="activeCategory === cat"
-              (click)="filterByCategory(cat); toggleFilter()">
-              <span class="option-dot" [class.active]="activeCategory === cat"></span>
-              {{ cat }}
-            </button>
-          }
-        </div>
+    <!-- Categories Filter (Pills) -->
+    <div class="filter-pills-wrapper">
+      <div class="filter-pills">
+        @for (cat of categories; track cat) {
+          <button 
+            class="filter-pill" 
+            [class.active]="activeCategory === cat" 
+            (click)="filterByCategory(cat)">
+            {{ cat }}
+          </button>
+        }
       </div>
     </div>
 

@@ -119,6 +119,8 @@
 
   .service-visual {
     position: relative;
+    width: 100%;
+    min-width: 0;
     
     // Carousel Container
     .carousel-container {
@@ -127,6 +129,8 @@
       gap: 25px;
 
       .carousel-main {
+        width: 100%;
+        max-width: 100%;
         aspect-ratio: 4/3;
         overflow: hidden;
         border-radius: 28px;
@@ -279,6 +283,8 @@
     }
     
     .image-main {
+      width: 100%;
+      max-width: 100%;
       aspect-ratio: 4/3;
       overflow: hidden;
       border-radius: 28px;

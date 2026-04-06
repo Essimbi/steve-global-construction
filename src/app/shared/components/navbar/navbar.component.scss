@@ -219,3 +219,25 @@
     display: flex;
   }
 }
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 0;
+
+    &.scrolled {
+      padding: 10px 0;
+
+      .logo-img {
+        height: 45px;
+      }
+    }
+  }
+
+  .logo-container .logo-img {
+    height: 55px;
+  }
+
+  .mobile-menu .mobile-nav-links li a {
+    font-size: 1.5rem;
+  }
+}

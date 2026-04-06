@@ -35,26 +35,79 @@ export class PortfolioComponent implements AfterViewInit {
   }
 
   private initializeProjects() {
-    // Services phares à afficher + autres services
-    const serviceIds = [5, 12, 15, 16, 4, 9, 3]; // Électricité, Vente Électrique & Solaire, Vidéo Surveillance, Froid & Climatisation, Forage, Plâtrerie, Énergies Renouvelables
-    const projects: Project[] = [];
-    let projectId = 1;
-
-    serviceIds.forEach(serviceId => {
-      const service = this.servicesData.getServiceById(serviceId);
-      if (service && service.gallery && service.gallery.length > 0) {
-        // Prendre la première image de la galerie du service
-        projects.push({
-          id: projectId++,
-          title: `Réalisation ${service.name}`,
-          category: service.name,
-          image: service.gallery[0],
-          description: service.description
-        });
+    // Sélection manuelle des 8 meilleures réalisations pour la page d'accueil
+    this.projects = [
+      {
+        id: 1,
+        title: 'Chantier de Construction',
+        category: 'Gros Œuvre & Bâtiment',
+        image: 'assets/images/construction/WhatsApp Image 2026-04-04 at 10.49.50 (1).jpeg',
+        description: 'Exécution rigoureuse de travaux structurels avec un suivi de qualité irréprochable.'
+      },
+      {
+        id: 2,
+        title: 'Aménagement Intérieur',
+        category: 'Plâtrerie & Finitions',
+        image: 'assets/images/platerie/WhatsApp Image 2026-04-04 at 10.49.44 (2).jpeg',
+        description: 'Design des espaces intérieurs avec des finitions en staff et plâtrerie haut de gamme.'
+      },
+      {
+        id: 3,
+        title: 'Installation Électrique',
+        category: 'Électricité Tertiaire',
+        image: 'assets/images/electrique/WhatsApp Image 2026-04-04 at 10.49.47.jpeg',
+        description: 'Déploiement de réseaux électriques complexes et mise en conformité.'
+      },
+      {
+        id: 4,
+        title: 'Réseau de Froid',
+        category: 'Froid & Climatisation',
+        image: 'assets/images/froid/froid_1.jpg',
+        description: 'Installation de systèmes de climatisation et de chambre froide industrielle.'
+      },
+      {
+        id: 5,
+        title: 'Sécurité Intégrale',
+        category: 'Vidéo Surveillance',
+        image: 'assets/images/cameras/camera_1.jpg',
+        description: 'Mise en place de caméras de sécurité et d\'infrastructures de télésurveillance 24/7.'
+      },
+      {
+        id: 6,
+        title: 'Adduction d\'Eau',
+        category: 'Forage & Pompage',
+        image: 'assets/services/forage/forage_1.jpg',
+        description: 'Forage hydraulique de grande profondeur et systèmes de pompage fluides.'
+      },
+      {
+        id: 7,
+        title: 'Éclairage Public Solaire',
+        category: 'Énergies Renouvelables',
+        image: 'assets/images/lampadaires/lampadaire_1.jpg',
+        description: 'Installation de lampadaires solaires pour villes et quartiers résidentiels autonômes.'
+      },
+      {
+        id: 8,
+        title: 'Infrastructures Lourdes',
+        category: 'Parcs Machines',
+        image: 'assets/services/parcs/parcs_1.jpg',
+        description: 'Manutention, alignement et mise en service de machines industrielles professionnelles.'
+      },
+      {
+        id: 9,
+        title: 'Déploiement Groupes Électrogènes',
+        category: 'Secours & Énergie',
+        image: 'assets/services/groupes/groupe_1.jpg',
+        description: 'Installation et synchronisation de groupes électrogènes haute capacité pour l\'industrie.'
+      },
+      {
+        id: 10,
+        title: 'Plomberie Industrielle',
+        category: 'Plomberie & Fluides',
+        image: 'assets/services/plomberie/plomberie_1.jpg',
+        description: 'Conception de réseaux hydrauliques et installations sanitaires complexes zéro fuite.'
       }
-    });
-
-    this.projects = projects;
+    ];
   }
 
   ngAfterViewInit() {

@@ -17,7 +17,7 @@
   <div class="container">
     <div class="services-list">
       @for (service of services; track service.id; let even = $even) {
-        <div class="service-row" [class.row-reverse]="even">
+        <div class="service-row" [class.row-reverse]="even" [id]="'service-' + service.id">
           <!-- Visuel -->
           <div class="service-visual" appVanillaTilt>
             <!-- Carousel Container -->

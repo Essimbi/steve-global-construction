@@ -80,9 +80,15 @@ export class ServicesDataService {
         this.SERVICES_PATH + 'electricite/electricite_1.jpg',
         this.SERVICES_PATH + 'electricite/electricite_2.jpg',
         this.SERVICES_PATH + 'electricite/electricite_3.jpg',
-        this.IMAGES_PATH + 'rea/WhatsApp Image 2026-03-30 at 09.54.39.jpeg',
-        this.IMAGES_PATH + 'rea/WhatsApp Image 2026-03-30 at 09.54.40 (1).jpeg',
-        this.IMAGES_PATH + 'rea/WhatsApp Image 2026-03-30 at 09.54.40.jpeg'
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.39.jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.43 (1).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.46 (1).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.46.jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.47 (2).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.47.jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.49 (1).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.51 (1).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.52.jpeg'
       ]
     },
     {
@@ -131,7 +137,26 @@ export class ServicesDataService {
       gallery: [
         this.SERVICES_PATH + 'platrerie/platrerie_1.jpg',
         this.SERVICES_PATH + 'platrerie/platrerie_2.jpg',
-        this.SERVICES_PATH + 'platrerie/platrerie_3.png'
+        this.SERVICES_PATH + 'platrerie/platrerie_3.png',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.38 (1).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.38.jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.41 (1).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.41.jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.42 (2).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.42.jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.43.jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.44 (1).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.44 (2).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.47 (1).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.48 (2).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.48.jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.50.jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.51 (2).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.51.jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.52 (2).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.53 (1).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.53 (2).jpeg',
+        this.IMAGES_PATH + 'platerie/WhatsApp Image 2026-04-04 at 10.49.53.jpeg'
       ]
     },
     {
@@ -269,6 +294,23 @@ export class ServicesDataService {
       });
     });
 
+    // Ajouter les images de construction générale
+    const constImages = [
+      this.IMAGES_PATH + 'construction/WhatsApp Image 2026-04-04 at 10.49.42 (1).jpeg',
+      this.IMAGES_PATH + 'construction/WhatsApp Image 2026-04-04 at 10.49.44.jpeg',
+      this.IMAGES_PATH + 'construction/WhatsApp Image 2026-04-04 at 10.49.48 (1).jpeg',
+      this.IMAGES_PATH + 'construction/WhatsApp Image 2026-04-04 at 10.49.49.jpeg',
+      this.IMAGES_PATH + 'construction/WhatsApp Image 2026-04-04 at 10.49.50 (1).jpeg',
+      this.IMAGES_PATH + 'construction/WhatsApp Image 2026-04-04 at 10.49.52 (1).jpeg'
+    ];
+    constImages.forEach(img => {
+      allImages.push({
+        url: img,
+        service: 'Construction & Bâtiment',
+        category: 'Construction & Bâtiment'
+      });
+    });
+
     return allImages;
   }
 
@@ -278,6 +320,6 @@ export class ServicesDataService {
       .map(s => s.name);
     
     // Ajouter la catégorie des lampadaires
-    return [...serviceCategories, 'Lampadaires et Éclairage Public'];
+    return [...serviceCategories, 'Lampadaires et Éclairage Public', 'Construction & Bâtiment'];
   }
 }

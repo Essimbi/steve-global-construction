@@ -8,7 +8,7 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'enabled' })), 
+    provideRouter(routes, withInMemoryScrolling({ scrollPositionRestoration: 'enabled', anchorScrolling: 'enabled' })), 
     provideClientHydration(withEventReplay()),
     importProvidersFrom(LucideAngularModule.pick({ Zap, Settings, Sun, Droplet, Plug, ShowerHead, BrickWall, PaintBucket, Sparkles, Image: ImageIcon, Building2, Wrench, Trophy, Target, ShieldCheck, Award, Leaf, Plus, Minus, X, ChevronLeft, ChevronRight, ChevronDown, ImageOff, Facebook, Linkedin, MessageCircle, Mail, Phone, MapPin, Instagram, Twitter, Music, ShoppingCart, GraduationCap, Network }))
   ]

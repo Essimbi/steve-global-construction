@@ -46,11 +46,12 @@ export class ServicesDataService {
     },
     {
       id: 3, name: 'Énergies Renouvelables', icon: 'sun',
-      image: this.SERVICES_PATH + 'energie/energie_1.jpg',
-      description: 'Prenez le virage de la transition énergétique. Conception de fermes solaires, centrales hybrides et solutions d\'autonomie totale pour sites isolés.',
-      deliverables: ['Ingénierie photovoltaïque avancée', 'Stockage Lithium haute capacité', 'Supervision technique et pilotage intelligent'],
+      image: this.SERVICES_PATH + 'energie/lampadaire_solaire.png',
+      description: 'Prenez le virage de la transition énergétique. Étude complète incluant le dimensionnement, le bilan de puissance et le choix des appareillages optimaux pour vos centrales hybrides, fermes solaires ou sites isolés.',
+      deliverables: ['Dimensionnement et bilan de puissance', 'Vente d\'accessoires (Panneaux, Batteries, Onduleurs)', 'Installation de lampadaires solaires avec formation à l\'appui'],
       waText: '%C3%89nergies%20renouvelables',
       gallery: [
+        this.SERVICES_PATH + 'energie/lampadaire_solaire.png',
         this.SERVICES_PATH + 'energie/energie_1.jpg',
         this.SERVICES_PATH + 'energie/energie_2.jpg',
         this.SERVICES_PATH + 'energie/energie_3.jpg',
@@ -60,11 +61,12 @@ export class ServicesDataService {
     },
     {
       id: 4, name: 'Forage & Adduction', icon: 'droplet',
-      image: this.SERVICES_PATH + 'forage/forage_1.jpg',
-      description: 'Maîtrise complète de la ressource en eau. Des forages profonds aux réseaux d\'adduction sous pression pour l\'agriculture, l\'industrie et l\'habitat urbain.',
-      deliverables: ['Études hydrogéologiques pointues', 'Tubage résistant et pompage immergé', 'Unités de potabilisation et filtration'],
+      image: this.SERVICES_PATH + 'forage/machine_forage.png',
+      description: 'Maîtrise complète de la ressource en eau. Nous réalisons une étude géophysique du sol approfondie qui nous permet de déterminer précisément la profondeur pour trouver l\'eau avant tout forage.',
+      deliverables: ['Étude géophysique du sol et de profondeur', 'Forage profond avec machines spécialisées', 'Réseaux d\'adduction sous pression et pompage immergé'],
       waText: 'Forage',
       gallery: [
+        this.SERVICES_PATH + 'forage/machine_forage.png',
         this.SERVICES_PATH + 'forage/forage_1.jpg',
         this.SERVICES_PATH + 'forage/forage_2.jpg',
         this.SERVICES_PATH + 'forage/forage_3.jpg'
@@ -72,23 +74,16 @@ export class ServicesDataService {
     },
     {
       id: 5, name: 'Électricité Bâtiment & Tertiaire', icon: 'plug',
-      image: this.SERVICES_PATH + 'electricite/electricite_1.jpg',
-      description: 'L\'intelligence électrique de vos infrastructures. Courants forts et faibles, domotique, et réseaux sécurisés pour des bâtiments conformes aux normes internationales.',
-      deliverables: ['Conception des armoires TGBT sur mesure', 'Câblage structuré et fibre optique', 'Mise en conformité et certification consuel'],
+      image: this.SERVICES_PATH + 'electricite/ouvriers_electricite.png',
+      description: 'Étude et réalisation de plans architecturaux sur le terrain. Nos équipes interviennent sur toutes les phases de chantier : perçage des murs, scellement de boîtiers, raccordement d\'armoires électriques, perçage du staff pour encastrer les spots au plafond et pose de lustres.',
+      deliverables: ['Travaux pratiques sur le courant électrique', 'Raccordement d\'armoires et scellement de boîtiers', 'Pose de lustres et encastrement de spots au plafond'],
       waText: '%C3%89lectricit%C3%A9%20b%C3%A2timent',
       gallery: [
+        this.SERVICES_PATH + 'electricite/ouvriers_electricite.png',
+        this.SERVICES_PATH + 'electricite/ing_casque_blanc.png',
         this.SERVICES_PATH + 'electricite/electricite_1.jpg',
         this.SERVICES_PATH + 'electricite/electricite_2.jpg',
-        this.SERVICES_PATH + 'electricite/electricite_3.jpg',
-        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.39.jpeg',
-        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.43 (1).jpeg',
-        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.46 (1).jpeg',
-        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.46.jpeg',
-        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.47 (2).jpeg',
-        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.47.jpeg',
-        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.49 (1).jpeg',
-        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.51 (1).jpeg',
-        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.52.jpeg'
+        this.SERVICES_PATH + 'electricite/electricite_3.jpg'
       ]
     },
     {
@@ -187,8 +182,8 @@ export class ServicesDataService {
     {
       id: 12, name: 'Vente de Matériels Électriques et Accessoires Solaire', icon: 'shopping-cart',
       image: this.SERVICES_PATH + 'vente_electrique/vente_electrique_1.jpg',
-      description: 'Accédez à un catalogue complet de matériel électrique certifié et d\'accessoires solaires. Disjoncteurs, câbles armés, onduleurs, panneaux solaires et composants industriels des plus grandes marques internationales.',
-      deliverables: ['Composants basse et moyenne tension', 'Équipements de protection et coupure', 'Panneaux solaires et accessoires solaires', 'Conseil technique et SAV réactif'],
+      description: 'Matériel électrique (Disjoncteurs, câbles, gaines, coffrets modulaires, boîtiers à vis, peignes, spots, détecteurs de mouvement et incendie, télérupteurs, minuteries, sonneries, interrupteurs, prises, dominos) et Solaire (Panneaux, batteries, contrôleurs de charge, onduleurs, rails de fixation).',
+      deliverables: ['Matériel électrique de référence complet', 'Accessoires solaires (Panneaux, batteries, onduleurs)', 'Disponibilité en magasin et conseil technique'],
       waText: 'Vente%20mat%C3%A9riel%20%C3%A9lectrique%20et%20accessoires%20solaire',
       gallery: [
         this.SERVICES_PATH + 'vente_electrique/vente_electrique_1.jpg',
@@ -197,6 +192,15 @@ export class ServicesDataService {
         this.SERVICES_PATH + 'vente_electrique/lampadaire_4.jpg',
         this.SERVICES_PATH + 'vente_electrique/cable.jpg',
         this.SERVICES_PATH + 'vente_electrique/batterie.jpg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.39.jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.43 (1).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.46 (1).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.46.jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.47 (2).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.47.jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.49 (1).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.51 (1).jpeg',
+        this.IMAGES_PATH + 'electrique/WhatsApp Image 2026-04-04 at 10.49.52.jpeg'
       ]
     },
     {

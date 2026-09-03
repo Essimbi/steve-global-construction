@@ -13,7 +13,9 @@ import gsap from 'gsap';
 })
 export class HeroComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('canvasContainer') canvasContainer!: ElementRef;
-  
+
+  heroImage = 'assets/images/hero/hero-home-chantier-01.jpg';
+
   private renderer!: THREE.WebGLRenderer;
   private scene!: THREE.Scene;
   private camera!: THREE.PerspectiveCamera;

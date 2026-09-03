@@ -46,12 +46,13 @@ export class ServicesDataService {
     },
     {
       id: 3, name: 'Énergies Renouvelables', icon: 'sun',
-      image: this.SERVICES_PATH + 'energie/lampadaire_solaire.png',
+      image: this.SERVICES_PATH + 'energie/services-energie-lampadaire-solaire-01.jpg',
       description: 'Prenez le virage de la transition énergétique. Étude complète incluant le dimensionnement, le bilan de puissance et le choix des appareillages optimaux pour vos centrales hybrides, fermes solaires ou sites isolés.',
       deliverables: ['Dimensionnement et bilan de puissance', 'Vente d\'accessoires (Panneaux, Batteries, Onduleurs)', 'Installation de lampadaires solaires avec formation à l\'appui'],
       waText: '%C3%89nergies%20renouvelables',
       gallery: [
-        this.SERVICES_PATH + 'energie/lampadaire_solaire.png',
+        this.SERVICES_PATH + 'energie/services-energie-lampadaire-solaire-01.jpg',
+        this.IMAGES_PATH + 'lampadaires/lampadaires-installation-nuit-01.jpg',
         this.SERVICES_PATH + 'energie/energie_1.jpg',
         this.SERVICES_PATH + 'energie/energie_2.jpg',
         this.SERVICES_PATH + 'energie/energie_3.jpg',
@@ -74,13 +75,15 @@ export class ServicesDataService {
     },
     {
       id: 5, name: 'Électricité Bâtiment & Tertiaire', icon: 'plug',
-      image: this.SERVICES_PATH + 'electricite/ouvriers_electricite.png',
+      image: this.SERVICES_PATH + 'electricite/electricite-tableau-schneider-01.jpg',
       description: 'Étude et réalisation de plans architecturaux sur le terrain. Nos équipes interviennent sur toutes les phases de chantier : perçage des murs, scellement de boîtiers, raccordement d\'armoires électriques, perçage du staff pour encastrer les spots au plafond et pose de lustres.',
       deliverables: ['Travaux pratiques sur le courant électrique', 'Raccordement d\'armoires et scellement de boîtiers', 'Pose de lustres et encastrement de spots au plafond'],
       waText: '%C3%89lectricit%C3%A9%20b%C3%A2timent',
       gallery: [
-        this.SERVICES_PATH + 'electricite/ouvriers_electricite.png',
-        this.SERVICES_PATH + 'electricite/ing_casque_blanc.png',
+        this.SERVICES_PATH + 'electricite/electricite-tableau-schneider-01.jpg',
+        this.SERVICES_PATH + 'electricite/electricite-tableau-schneider-02.jpg',
+        this.SERVICES_PATH + 'electricite/electricite-tableau-legrand-01.jpg',
+        this.SERVICES_PATH + 'electricite/electricite-armoire-technique-01.jpg',
         this.SERVICES_PATH + 'electricite/electricite_1.jpg',
         this.SERVICES_PATH + 'electricite/electricite_2.jpg',
         this.SERVICES_PATH + 'electricite/electricite_3.jpg'
@@ -88,11 +91,28 @@ export class ServicesDataService {
     },
     {
       id: 6, name: 'Plomberie & Fluides', icon: 'shower-head',
-      image: this.SERVICES_PATH + 'plomberie/plomberie_1.jpg',
+      image: this.SERVICES_PATH + 'plomberie/plomberie-nourrice-distribution-04.jpg',
       description: 'Réseaux hydrauliques de haute fiabilité. Nous concevons des installations sanitaires et industrielles garantissant zéro fuite et une gestion optimale des pressions.',
       deliverables: ['Pose de réseaux PER, Multicouche et Inox', 'Chaufferie, surpresseurs et sécurité incendie', 'Équipements sanitaires de standing'],
       waText: 'Plomberie',
       gallery: [
+        this.SERVICES_PATH + 'plomberie/plomberie-nourrice-distribution-04.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-nourrice-distribution-05.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-nourrice-distribution-01.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-nourrice-distribution-02.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-nourrice-distribution-03.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-tuyauterie-01.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-tuyauterie-02.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-tuyauterie-03.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-tuyauterie-04.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-sanitaire-toilette-01.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-sanitaire-toilette-02.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-sanitaire-vasque-01.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-sanitaire-vasque-02.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-sanitaire-douche-01.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-sanitaire-douche-noire-01.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-sanitaire-chauffe-eau-01.jpg',
+        this.SERVICES_PATH + 'plomberie/plomberie-sanitaire-installation-01.jpg',
         this.SERVICES_PATH + 'plomberie/plomberie_1.jpg',
         this.SERVICES_PATH + 'plomberie/plomberie_2.jpg',
         this.SERVICES_PATH + 'plomberie/plomberie_3.jpg',
@@ -173,6 +193,7 @@ export class ServicesDataService {
       deliverables: ['Plafonds suspendus acoustiques coupe-feu', 'Création de corniches lumineuses et voûtes', 'Modélisation et pose d\'éléments 3D en staff'],
       waText: 'Staff%20et%20placo',
       gallery: [
+        this.SERVICES_PATH + 'plafond/plafond-staff-led-01.jpg',
         this.SERVICES_PATH + 'plafond/cloison_1.jpg',
         this.SERVICES_PATH + 'plafond/cloison_2.jpg',
         this.SERVICES_PATH + 'plafond/cloison_3.jpg',
@@ -287,6 +308,8 @@ export class ServicesDataService {
 
     // Ajouter les images des lampadaires depuis le dossier images
     const lampImages = [
+      this.IMAGES_PATH + 'lampadaires/lampadaires-poteau-solaire-02.jpg',
+      this.IMAGES_PATH + 'lampadaires/lampadaires-installation-nuit-01.jpg',
       this.IMAGES_PATH + 'lampadaires/lampadaire_1.jpg',
       this.IMAGES_PATH + 'lampadaires/lampadaire_3.jpg'
     ];
@@ -300,6 +323,7 @@ export class ServicesDataService {
 
     // Ajouter les images de construction générale
     const constImages = [
+      this.IMAGES_PATH + 'construction/realisations-chantier-immeuble-01.jpg',
       this.IMAGES_PATH + 'construction/WhatsApp Image 2026-04-04 at 10.49.42 (1).jpeg',
       this.IMAGES_PATH + 'construction/WhatsApp Image 2026-04-04 at 10.49.44.jpeg',
       this.IMAGES_PATH + 'construction/WhatsApp Image 2026-04-04 at 10.49.48 (1).jpeg',

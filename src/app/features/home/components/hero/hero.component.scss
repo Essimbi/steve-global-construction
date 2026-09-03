@@ -1,3 +1,8 @@
+@keyframes heroKenBurns {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
 .hero {
   height: 100vh;
   width: 100%;
@@ -7,6 +12,30 @@
   align-items: center;
   overflow: hidden;
   background: var(--bg-primary);
+}
+
+.hero-bg-container {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+
+  .hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.55) contrast(1.1) saturate(1.05);
+    animation: heroKenBurns 30s ease-in-out infinite alternate;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(100deg, rgba(6, 12, 20, 0.92) 0%, rgba(6, 12, 20, 0.78) 40%, rgba(6, 12, 20, 0.45) 75%, rgba(6, 12, 20, 0.35) 100%),
+      linear-gradient(to top, rgba(6, 12, 20, 0.55) 0%, transparent 35%);
+  }
 }
 
 .canvas-container {
@@ -35,23 +64,36 @@
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;
-  
+
   span {
     display: block;
+    color: #ffffff;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
   }
 }
 
 .hero-sub {
   font-size: clamp(1rem, 2vw, 1.25rem);
-  color: var(--text-secondary);
+  color: rgba(255, 255, 255, 0.85);
   max-width: 600px;
   margin-bottom: 50px;
   line-height: 1.6;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
 }
 
 .hero-ctas {
   display: flex;
   gap: 20px;
+
+  .btn-outline {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+
+    &:hover {
+      border-color: var(--accent-gold);
+      color: var(--text-primary);
+    }
+  }
 }
 
 .scroll-indicator {
@@ -86,7 +128,8 @@
     transform: rotate(90deg);
     margin-top: 20px;
     font-size: 0.65rem;
-    opacity: 0.5;
+    color: rgba(255, 255, 255, 0.7);
+    opacity: 1;
   }
 }
 
